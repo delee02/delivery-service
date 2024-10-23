@@ -22,7 +22,7 @@ import java.util.Map;
 @Component
 public class JWTokenHelper implements TokenHelperIfs {
 
-    @Value("${token.secret-key}")
+    @Value("${token.secret.key}")
     private String secretKey;
 
     @Value("${token.access-token.plus-hour}")

@@ -57,4 +57,10 @@ public class UserBusiness {
     }
 
 
+    public UserResponse me(Long userId) {
+        var userEntity = userService.getUserWithThrow(userId);
+        var userResponse = userConverter.toResponse(userEntity);
+
+        return userResponse;
+    }
 }

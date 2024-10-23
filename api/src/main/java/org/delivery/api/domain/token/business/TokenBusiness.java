@@ -8,6 +8,7 @@ import org.delivery.api.domain.token.controller.model.TokenResponse;
 import org.delivery.api.domain.token.converter.TokenConverter;
 import org.delivery.api.domain.token.service.TokenService;
 import org.delivery.db.user.UserEntity;
+import org.springframework.stereotype.Service;
 
 import java.util.Optional;
 
@@ -36,5 +37,10 @@ public class TokenBusiness {
                 return tokenConverter.toResponse(accessToken, refreshToken);
             })
             .orElseThrow(()-> new ApiException(ErrorCode.NULL_POINT));
+    }
+
+    public Long validationAccessToken(String accessToken){
+        var userId = tokenService.validationToken(accessToken);
+        return userId;
     }
 }
