@@ -30,6 +30,8 @@ public class UserApiController {
         var response = userBusiness.me(Long.parseLong(userId.toString()));
         return Api.OK(response);
     }*/
+
+    @GetMapping("/me")
    public Api<UserResponse> me(@UserSession User user){
        var response = userBusiness.me(user.getId());
        return Api.OK(response);

@@ -5,6 +5,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.delivery.db.store.enums.StoreCategory;
+import org.delivery.db.store.enums.StoreStatus;
 
 import java.math.BigDecimal;
 
@@ -20,7 +21,9 @@ public class StoreResponse {
 
     private String address;
 
-    private StoreCategory storeCategory;
+    private StoreCategory category;
+
+    private StoreStatus status;
 
     private String thumbnailUrl;
 
@@ -29,4 +32,6 @@ public class StoreResponse {
     private BigDecimal minimumDeliveryAmount;
 
     private String phoneNumber;
+
+    private double star;
 }
