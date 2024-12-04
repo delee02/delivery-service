@@ -38,7 +38,7 @@ public class UserOrderService {
                 userId,
                 List.of(
                         UserOrderStatus.ORDER,
-                        UserOrderStatus.ACCPEPT,
+                        UserOrderStatus.ACCEPT,
                         UserOrderStatus.COOKING,
                         UserOrderStatus.DELIVERY
                 )
@@ -50,7 +50,7 @@ public class UserOrderService {
         return getUserOrderList(
                 userId,
                 List.of(
-                        UserOrderStatus.REVEIVE
+                        UserOrderStatus.RECEIVE
                 )
         );
     }
@@ -76,7 +76,7 @@ public class UserOrderService {
     public UserOrderEntity accept(UserOrderEntity userOrderEntity){
         userOrderEntity.setAcceptedAt(LocalDateTime.now());
 
-        return setStatus(userOrderEntity, UserOrderStatus.ACCPEPT);
+        return setStatus(userOrderEntity, UserOrderStatus.ACCEPT);
     }
 
     //조리시작
@@ -98,6 +98,6 @@ public class UserOrderService {
     public UserOrderEntity receive(UserOrderEntity userOrderEntity){
         userOrderEntity.setReceivedAt(LocalDateTime.now());
 
-        return setStatus(userOrderEntity, UserOrderStatus.REVEIVE);
+        return setStatus(userOrderEntity, UserOrderStatus.RECEIVE);
     }
 }
