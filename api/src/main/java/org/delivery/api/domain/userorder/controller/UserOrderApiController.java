@@ -7,6 +7,7 @@ import org.delivery.api.common.annotation.UserSession;
 import org.delivery.api.common.api.Api;
 import org.delivery.api.domain.user.controller.model.User;
 import org.delivery.api.domain.userorder.business.UserOrderBusiness;
+import org.delivery.api.domain.userorder.controller.model.UserOrderDetailResponse;
 import org.delivery.api.domain.userorder.controller.model.UserOrderRequest;
 import org.delivery.api.domain.userorder.controller.model.UserOrderResponse;
 import org.springframework.web.bind.annotation.*;
@@ -37,7 +38,7 @@ public class UserOrderApiController {
 
     //현재 진행중인 주문건
     @GetMapping("/current")
-    public Api<List<UserOrderResponse>> current(
+    public Api<List<UserOrderDetailResponse>> current(
             @Parameter(hidden = true)
             @UserSession
             User user
@@ -48,7 +49,7 @@ public class UserOrderApiController {
 
     //과거 주문 내역
     @GetMapping("/history")
-    public Api<List<UserOrderResponse>> history(
+    public Api<List<UserOrderDetailResponse>> history(
             @Parameter(hidden = true)
             @UserSession
             User user
@@ -57,8 +58,8 @@ public class UserOrderApiController {
         return Api.OK(response);
     }
     //주문 1건에 대한 내역
-    @GetMapping("/read")
-    public Api<UserOrderResponse> read(
+    @GetMapping("/id/{orderId}")
+    public Api<UserOrderDetailResponse> read(
             @Parameter(hidden = true)
             @UserSession
             User user,

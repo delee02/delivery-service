@@ -6,6 +6,7 @@ import org.delivery.api.common.exception.ApiException;
 import org.delivery.db.userorder.UserOrderEntity;
 import org.delivery.db.userorder.UserOrderRepository;
 import org.delivery.db.userorder.enums.UserOrderStatus;
+import org.springframework.boot.autoconfigure.integration.IntegrationProperties;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
@@ -17,6 +18,11 @@ import java.util.Optional;
 public class UserOrderService {
 
     private final UserOrderRepository userOrderRepository;
+
+    public UserOrderEntity getUserOrderWithoutStatusThrow(Long id, Long userId){
+        return userOrderRepository.findAllByIdAndUserId(id, userId)
+                .orElseThrow(() -> new ApiException(ErrorCode.NULL_POINT));
+    }
 
     public UserOrderEntity getUserOrderWithThrow(Long id, Long userId){
         return userOrderRepository.findAllByIdAndStatusAndUserId(id, UserOrderStatus.REGISTERED, userId)
