@@ -18,14 +18,14 @@ public class SecurityConfig {
 
     private List<String> SWAGGER = List.of(
             "/swagger-ui.html",
-            "/swagge-ui/**",
+            "/swagger-ui/**",
             "v3/api-docs/**"
     );
 
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity httpSecurity) throws Exception{
         httpSecurity
-               //.csrf().disable()
+               .csrf(csrf->csrf.disable())
                 .authorizeHttpRequests(it -> {
                     it
                             .requestMatchers(

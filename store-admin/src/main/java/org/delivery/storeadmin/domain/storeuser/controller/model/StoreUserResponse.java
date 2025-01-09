@@ -27,7 +27,7 @@ public class StoreUserResponse {
     @NoArgsConstructor
     @AllArgsConstructor
     @Builder
-    static class UserResponse{
+    public static class UserResponse{
         private Long id;
 
         private String email;
@@ -40,7 +40,7 @@ public class StoreUserResponse {
 
         private LocalDateTime unregisteredAt;
 
-        private LocalDateTime LastLoginAt;
+        private LocalDateTime lastLoginAt;
 
     }
 
@@ -48,11 +48,11 @@ public class StoreUserResponse {
     @NoArgsConstructor
     @AllArgsConstructor
     @Builder
-    static class StoreResponse{
+    public static class StoreResponse{
 
         private Long id;
 
-        private Long name;
+        private String name;
 
     }
 }

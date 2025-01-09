@@ -27,6 +27,7 @@ public class UserOpenApiController {
             @Valid
             @RequestBody Api<UserRegisterRequest> request
     ){
+        System.out.println("뭐냐고 ~:{}"+request.getBody().getName());
         var response = userBusiness.register(request.getBody());
         return Api.OK(response);
     }

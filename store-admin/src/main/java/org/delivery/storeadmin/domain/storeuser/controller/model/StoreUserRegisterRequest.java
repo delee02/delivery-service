@@ -4,13 +4,13 @@ import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.delivery.db.storeuser.enums.StoreUserRole;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 public class StoreUserRegisterRequest {
-
     @NotBlank
     private String storeName;
 

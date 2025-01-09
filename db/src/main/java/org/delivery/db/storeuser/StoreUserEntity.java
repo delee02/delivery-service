@@ -1,9 +1,6 @@
 package org.delivery.db.storeuser;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 import org.delivery.db.BaseEntity;
@@ -16,6 +13,7 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @NoArgsConstructor
 @SuperBuilder
+@Entity
 @EqualsAndHashCode(callSuper = true)
 @Table(name="store_user")
 public class StoreUserEntity extends BaseEntity {
@@ -41,5 +39,5 @@ public class StoreUserEntity extends BaseEntity {
 
     private LocalDateTime unregisteredAt;
 
-    private LocalDateTime LastLoginAt;
+    private LocalDateTime lastLoginAt;
 }

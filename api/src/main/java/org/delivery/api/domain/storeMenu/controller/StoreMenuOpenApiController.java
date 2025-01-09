@@ -24,7 +24,7 @@ public class StoreMenuOpenApiController {
             @RequestBody Api<StoreMenuRegisterRequest> request
     ){
         var req =request.getBody();
-        var respopnse = storeMenuBusiness.register(req);
-        return Api.OK(respopnse);
+        var response = storeMenuBusiness.register(req);
+        return Api.OK(response);
     }
 }

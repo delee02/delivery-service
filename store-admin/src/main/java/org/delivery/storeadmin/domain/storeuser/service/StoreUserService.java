@@ -18,7 +18,7 @@ public class StoreUserService {
 
     private final PasswordEncoder passwordEncoder;
 
-    public StoreUserEntity register(StoreUserEntity storeUserEntity){
+        public StoreUserEntity register(StoreUserEntity storeUserEntity){
         storeUserEntity.setStatus(StoreUserStatus.REGISTERED);
         storeUserEntity.setPassword(passwordEncoder.encode(storeUserEntity.getPassword()));
         storeUserEntity.setRegisteredAt(LocalDateTime.now());
