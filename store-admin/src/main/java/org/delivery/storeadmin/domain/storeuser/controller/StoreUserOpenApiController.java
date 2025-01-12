@@ -2,7 +2,6 @@ package org.delivery.storeadmin.domain.storeuser.controller;
 
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
 import org.delivery.storeadmin.domain.storeuser.business.StoreUserBusiness;
 import org.delivery.storeadmin.domain.storeuser.controller.model.StoreUserRegisterRequest;
 import org.delivery.storeadmin.domain.storeuser.controller.model.StoreUserResponse;
@@ -24,7 +23,6 @@ public class StoreUserOpenApiController {
             @RequestBody
             StoreUserRegisterRequest request
             ){
-        System.out.println("뭐냐고 ~:{}"+request.getStoreName());
         var response = storeUserBusiness.register(request);
 
         return response;
