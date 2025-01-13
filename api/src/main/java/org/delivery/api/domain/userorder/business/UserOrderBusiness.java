@@ -2,6 +2,7 @@ package org.delivery.api.domain.userorder.business;
 
 import lombok.RequiredArgsConstructor;
 import org.delivery.api.common.annotation.Business;
+import org.delivery.api.common.rabbitmq.Producer;
 import org.delivery.api.domain.store.converter.StoreConverter;
 import org.delivery.api.domain.store.service.StoreService;
 import org.delivery.api.domain.storeMenu.converter.StoreMenuConverter;
@@ -11,6 +12,7 @@ import org.delivery.api.domain.userorder.controller.model.UserOrderDetailRespons
 import org.delivery.api.domain.userorder.controller.model.UserOrderResponse;
 import org.delivery.api.domain.userorder.converter.UserOrderConverter;
 import org.delivery.api.domain.userorder.controller.model.UserOrderRequest;
+import org.delivery.api.domain.userorder.producer.UserOrderProducer;
 import org.delivery.api.domain.userorder.service.UserOrderService;
 import org.delivery.api.domain.userordermenu.converter.UserOrderMenuConverter;
 import org.delivery.api.domain.userordermenu.service.UserOrderMenuService;
@@ -34,6 +36,8 @@ public class UserOrderBusiness {
 
     private final UserOrderMenuService userOrderMenuService;
     private final UserOrderMenuConverter userOrderMenuConverter;
+
+    private final UserOrderProducer userOrderProducer;
 
     //사용자, 메뉴id
     //userOrder 생성
@@ -67,6 +71,10 @@ public class UserOrderBusiness {
                 it ->{userOrderMenuService.order(it);
                 });
 
+        //비동기로 가맹점에 주문 알리기
+        userOrderProducer.sendOrder(newUserOrderEntity);
+
+        //response
         return userOrderConverter.toResponse(newUserOrderEntity);
     }
 

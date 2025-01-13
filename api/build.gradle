@@ -23,8 +23,13 @@ repositories {
 
 dependencies {
     implementation project(':db')
+    implementation project(':common')
+
     compileOnly 'org.projectlombok:lombok'
     annotationProcessor 'org.projectlombok:lombok'
+
+    //amqp 프로토콜로 이루어진 프로젝트 종속성 걸어줌
+    implementation 'org.springframework.boot:spring-boot-starter-amqp'
 
     implementation 'org.springframework.boot:spring-boot-starter-web'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
