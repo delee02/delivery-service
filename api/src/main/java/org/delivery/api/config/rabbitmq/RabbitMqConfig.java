@@ -22,7 +22,7 @@ public class RabbitMqConfig {
 
     @Bean
     public Queue queue(){
-        return new Queue("delivey.queue");
+        return new Queue("delivery.queue");
     }
 
     @Bean
