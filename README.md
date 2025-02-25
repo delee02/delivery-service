@@ -7,9 +7,10 @@
 
 ##### -개발 인원: 1인
 
-##### -개발 이유: 인터넷 강의를 바탕으로 프로젝트를 만들었으며, 기본적인 기능 구현부터 sse를 사용한 알림 기능까지 심화된 기능 만들 수 있어서 개발하게 되었습니다.  
+##### -개발 이유: 인터넷 강의를 바탕으로 프로젝트를 개발하였으며, 기본적인 Spring Boot 기능 구현부터 SSE(Server-Sent Events)를 활용한 실시간 알림 기능까지 심화된 기능을 적용하여 실무에서도 활용할 수 있는 기술을 익히고자 프로젝트를 진행하게 되었습니다.
 
-## 주요기능 
+
+## 사용한 기능
 ##### spring security를 통한 가맹점 서버 개발, filter exception 설정, interceptor을 통한 인증기반 적용, JWT토큰, sse를 사용한 알람 개발중
 
 ## 개발언어
@@ -40,21 +41,21 @@
 ### store
 ##### /open-api/user/register 가게 등록
 
-##### /open-api/store-menu/register 가게 메뉴 등록?
+##### /open-api/store-menu/register 가게 메뉴 등록
 
-##### /api/store/search 가게 찾기
+##### /api/store/search 가게 리스트(카테고리별)
 
-##### /api/store-menu/search 가게 메뉴 찾기?
+##### /api/store-menu/search 가게별 메뉴 리스트
 
 ### user order
 
-##### /api/user-order ?
+##### /api/user-order 주문하기
 
-##### /api/user-order/id/{order-id} 나의 특정 주문 보기
+##### /api/user-order/id/{order-id} 주문 한 건에 대한 내역
 
-##### /api/user-order/history 주문 내역
+##### /api/user-order/history 과거 주문 내역
 
-##### /api/user-order/current 최근 주문?
+##### /api/user-order/current 현재 진행중인 주문건
 
 ### store user
 
@@ -67,4 +68,17 @@
 ##### /api/sse/connect
 
 ##  DB설계
+
+##### user: 사용자 테이블
+
+##### user_order: 사용자 주문 테이블
+
+##### user_order_menu: 사용자가 주문한 메뉴 테이블
+
+##### store: 가게(가맹점) 테이블
+
+##### store_menu: 가게(가맹점) 메뉴 테이블
+
+##### stoer_user: 가게(가맹점) 관리자 테이블
+
 ![Image](https://github.com/user-attachments/assets/4aa56e0f-cbd2-477a-ae40-dce76066c3f0)
